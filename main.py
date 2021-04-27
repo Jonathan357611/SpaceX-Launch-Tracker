@@ -66,18 +66,16 @@ while True:
     font_10 = ImageFont.truetype(os.path.join("font.ttf"), size=10)
     font = ImageFont.truetype(os.path.join("font.ttf"), size=15)
 
-
-
-    print(int(launch_time) - unixtime)
     
     try:
-        time_left = timedelta(seconds=(int(launch_time)))
-        time_text = '    '+str(time_left)[:-2]+'00'
+        time_left = timedelta(seconds=(int(launch_time) - unixtime))
+        print(time_left)
+        time_text = str(time_left)[:-2]+'00'
     except:
         time_text = "error"
         
     print(time_text)
-    # time_text = "    5 days 10:20:00"
+    # time_text = "5 days 10:20:00"
     w = display.height
     h = display.width
     print(w)
