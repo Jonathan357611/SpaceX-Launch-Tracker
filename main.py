@@ -9,6 +9,7 @@ import time
 import epd2in13b_v3 as epd2in13b_v3
 from epd2in13b_v3 import *
 import re
+from datetime import timedelta
 
 # display = epd2in13b_v3.EPD()
 print(1)
@@ -68,86 +69,15 @@ while True:
 
 
     print(int(launch_time) - unixtime)
-
-    time_left = int(launch_time) - unixtime
-
-
-    if time_left > 86400 * 10:           # Please do not post my code on r/badcode :( But I would love some tips how to clean this weird code!
-        time_text = "    10 Days"
-    elif time_left > 86400 * 9:
-        time_text = "     9 Days"
-    elif time_left > 86400 * 8:
-        time_text = "     8 Days"
-    elif time_left > 86400 * 7:
-        time_text = "     7 Days"
-    elif time_left > 86400 * 6:
-        time_text = "     6 Days"
-    elif time_left > 86400 * 5:
-        time_text = "     5 Days"
-    elif time_left > 86400 * 4:
-        time_text = "     4 Days"
-    elif time_left > 86400 * 3:
-        time_text = "     3 Days"
-    elif time_left > 86400 * 2:
-        time_text = "     2 Days"
-    elif time_left > 86400:
-        time_text = "      1 Day"
-    elif time_left > 3600 * 23:
-        time_text = "   23 Hours"
-    elif time_left > 3600 * 22:
-        time_text = "   22 Hours"
-    elif time_left > 3600 * 21:
-        time_text = "   21 Hours"
-    elif time_left > 3600 * 20:
-        time_text = "   20 Hours"
-    elif time_left > 3600 * 19:
-        time_text = "   19 Hours"
-    elif time_left > 3600 * 18:
-        time_text = "   18 Hours"
-    elif time_left > 3600 * 17:
-        time_text = "   17 Hours"
-    elif time_left > 3600 * 16:
-        time_text = "   16 Hours"
-    elif time_left > 3600 * 15:
-        time_text = "   15 Hours"
-    elif time_left > 3600 * 14:
-        time_text = "   14 Hours"
-    elif time_left > 3600 * 13:
-        time_text = "   13 Hours"
-    elif time_left > 3600 * 12:
-        time_text = "   12 Hours"
-    elif time_left > 3600 * 11:
-        time_text = "   11 Hours"
-    elif time_left > 3600 * 10:
-        time_text = "   10 Hours"
-    elif time_left > 3600 * 9:
-        time_text = "    9 Hours"
-    elif time_left > 3600 * 8:
-        time_text = "    8 Hours"
-    elif time_left > 3600 * 7:
-        time_text = "    7 Hours"
-    elif time_left > 3600 * 6:
-        time_text = "    6 Hours"
-    elif time_left > 3600 * 5:
-        time_text = "    5 Hours"
-    elif time_left > 3600 * 4:
-        time_text = "    4 Hours"
-    elif time_left > 3600 * 3:
-        time_text = "    3 Hours"
-    elif time_left > 3600 * 2:
-        time_text = "    2 Hours"
-    elif time_left > 3600:
-        time_text = "    1 Hour"
-    elif time_left > 3600 / 2:
-        time_text = "30 Minutes"
-    elif time_left > 3600 / 4:
-        time_text = "15 Minutes"
-    elif time_left > 0:
-        time_text = "     Soon!"
-    else:
+    
+    try:
+        time_left = timedelta(seconds=(int(launch_time)))
+        time_text = '    '+str(time_left)[:-2]+'00'
+    except:
         time_text = "error"
+        
     print(time_text)
-    # time_text = "1,5 Stunden"
+    # time_text = "    5 days 10:20:00"
     w = display.height
     h = display.width
     print(w)
