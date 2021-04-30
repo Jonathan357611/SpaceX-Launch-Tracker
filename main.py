@@ -7,12 +7,10 @@ import calendar
 import ast
 import time
 import epd2in13b_v3 as epd2in13b_v3
-from epd2in13b_v3 import *
 import re
-from datetime import timedelta
 
 
-MINUTES = 15  # Define The amount of time to wait in the loop
+MINUTES = 1  # Define The amount of time to wait in the loop
 
 
 display = epd2in13b_v3.EPD()  # Defining "display"
@@ -41,7 +39,6 @@ while True:
     UNIX_START = unix_time_last_launch
     UNIX_NOW = unixtime                         # Defining the 3 important Unix-Timestamps (last flight, current time, next flight)
     UNIX_STOP = launch_time
-
 
     font_9 = ImageFont.truetype(os.path.join("font.ttf"), size=9)   # Creating multiple font-sizes using the Pillow (PIL) module
     font_8 = ImageFont.truetype(os.path.join("font.ttf"), size=8)
@@ -119,9 +116,13 @@ while True:
     image.paste(full_spacex_x, (156, 69))
     red_image.paste(full_spacex_x_redpart, (156, 69))  # This fills the cropped part with red
 
+    display.init()
     display.Clear() # Clearing the display
 
     display.display_black(display.getbuffer(image=image))  # Finaly draws the Black image on the E-Paper display
     display.display_red(display.getbuffer(image=red_image)) # And the same with the red image!
+
+    image.save("result.png")
+    red_image.save("red_result.png")
     display.sleep()  # Putting the display in sleep mode to reduce the power!
     time.sleep(MINUTES * 60) # Waits n Minutes
