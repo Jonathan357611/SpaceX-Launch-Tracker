@@ -10,7 +10,7 @@ import epd2in13b_v3 as epd2in13b_v3
 import re
 
 
-MINUTES = 1  # Define The amount of time to wait in the loop
+MINUTES = 15  # Define The amount of time to wait in the loop
 
 
 display = epd2in13b_v3.EPD()  # Defining "display"
@@ -119,10 +119,8 @@ while True:
     display.init()
     display.Clear() # Clearing the display
 
-    display.display_black(display.getbuffer(image=image))  # Finaly draws the Black image on the E-Paper display
-    display.display_red(display.getbuffer(image=red_image)) # And the same with the red image!
+    display.display(display.getbuffer(image=image), display.getbuffer(image=red_image))  # Finaly draws the Black image on the E-Paper display
 
-    image.save("result.png")
-    red_image.save("red_result.png")
+
     display.sleep()  # Putting the display in sleep mode to reduce the power!
     time.sleep(MINUTES * 60) # Waits n Minutes
