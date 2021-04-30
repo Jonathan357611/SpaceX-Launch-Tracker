@@ -110,7 +110,7 @@ while True:
     else:
         red_draw.text((5, 72), f"Reused: No", 0, font_9)
 
-    draw.text((5, 82), f"Soon: {_2_launch}", 0, font_9)  # And this will draw the next launch on the Image
+    draw.text((5, 82), f"Next: {_2_launch}", 0, font_9)  # And this will draw the next launch on the Image
 
 
     full_spacex_x = Image.open("spacex.png")  # Here we open/load the SpaceX logo (You can Download this Image in my GitHub Repo.)
