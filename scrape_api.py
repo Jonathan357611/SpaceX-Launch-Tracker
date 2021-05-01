@@ -1,11 +1,19 @@
 import requests
+import time
 def load_site():
     global site_latest, site_next, site_upcoming
 
     site_latest = None
     site_next = None
     site_upcoming = None
-    did_work = False
+
+    try:
+        site_latest = requests.get("https://api.spacexdata.com/v4/launches/latest")
+        site_next = requests.get("https://api.spacexdata.com/v4/launches/next")
+        site_upcoming = requests.get("https://api.spacexdata.com/v4/launches/upcoming")
+        did_work = True
+    except:
+        did_work = False
     while did_work == False:
         try:
             while site_latest == "None" or site_latest == None or site_next == "None" or site_next == None or site_upcoming == "None" or site_upcoming == None:
@@ -17,6 +25,7 @@ def load_site():
             site_upcoming = site_upcoming.json()
             did_work = True
         except:
+            time.sleep(60)
             did_work = False
 
 def latest_launch(info_to_get="name"):
