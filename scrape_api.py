@@ -12,7 +12,8 @@ def load_site():
         site_next = requests.get("https://api.spacexdata.com/v4/launches/next")
         site_upcoming = requests.get("https://api.spacexdata.com/v4/launches/upcoming")
         did_work = True
-    except:
+    except Exception as e:
+        print(e)
         did_work = False
     while did_work == False:
         try:
@@ -20,13 +21,13 @@ def load_site():
                 site_latest = requests.get("https://api.spacexdata.com/v4/launches/latest")
                 site_next = requests.get("https://api.spacexdata.com/v4/launches/next")
                 site_upcoming = requests.get("https://api.spacexdata.com/v4/launches/upcoming")
-            site_latest = site_latest.json()
-            site_next = site_next.json()
-            site_upcoming = site_upcoming.json()
             did_work = True
         except:
             time.sleep(60)
             did_work = False
+    site_latest = site_latest.json()
+    site_next = site_next.json()
+    site_upcoming = site_upcoming.json()
 
 def latest_launch(info_to_get="name"):
     global site_latest, site_next, site_upcoming
