@@ -24,7 +24,7 @@ The Display show all important informations about the next launch like these:
 
 ## Image
 
-![Image](https://preview.redd.it/5nefifx8rhv61.jpg?width=960&crop=smart&auto=webp&s=e850bfc8b443f07e61d9009f063b27e150608bd8)
+![Image](https://preview.redd.it/52g9xqpay7371.jpg?width=960&crop=smart&auto=webp&s=07689cdbafba99e23649e644a1e26e3f6d572140)
 
 
 
