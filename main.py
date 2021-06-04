@@ -23,7 +23,16 @@ def calculate_percentage(start, current, end, image_x=50):    # This is a functi
     return int(round(image_x/100*x*100))
 
 while True:
-    api.load_site() # This will load all 3 API endpoints
+    received_page = False
+    while not received_page:
+        try:
+            api.load_site() # This will load all 3 API endpoints
+            received_page = True
+        except:
+            print("ERROR RECEIVING PAGE - TRY AGAIN IN 60 SECONDS...")
+            time.sleep(60)
+            received_page = False
+
 
     ### GETTING DATA ###
     mission_name = api.next_launch("name")    # This Gets the name of the Next mission
@@ -115,6 +124,9 @@ while True:
 
     image.paste(full_spacex_x, (156, 69))
     red_image.paste(full_spacex_x_redpart, (156, 69))  # This fills the cropped part with red
+
+    image = image.rotate(angle=180)
+    red_image = red_image.rotate(angle=180)
 
     display.init()
     display.Clear() # Clearing the display
