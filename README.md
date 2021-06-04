@@ -7,7 +7,7 @@ This Program was designed for the Waveshare 2.13 Inch E-Paper Display (Red/Black
 You can buy it
 [here](https://www.waveshare.com/2.13inch-e-paper-hat-b.htm).
 
-You can find a tutorial [here](
+You can find a tutorial [here](https://www.electromaker.io/project/view/jonathan357611spacex-launch-tracker)
 
 ## Description
 This code uses the Pillow library to create the image which will be shown on the display.
