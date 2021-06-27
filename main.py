@@ -1,13 +1,12 @@
-# Importing all Libraries I used for this Project:
-from PIL import Image, ImageDraw, ImageFont
-import os
-import scrape_api as api  # Importing our file "scrape_api.py" as "api"
-from datetime import datetime
-import calendar
-import ast
 import time
 import epd2in13b_v3 as epd2in13b_v3
 import re
+import scrape_api as api
+from datetime import datetime
+from PIL import Image, ImageDraw, ImageFont
+import calendar
+import os
+import ast
 
 
 MINUTES = 15  # Define The amount of time to wait in the loop
@@ -109,12 +108,16 @@ while True:
     if core_dict["landing_attempt"] == True:
         draw.text((5, 62), f"Landing: Yes", 0, font_9)  # If the Rocket attemts to land
     else:
-        red_draw.text((5, 62), f"Landing: No", 0, font_9) # If the Rocket won't land, the Text will get displayed in red!
+        red_draw.text((55, 62), f"No", 0, font_9) # If the Rocket won't land, the Text will get displayed in red!
+        draw.text((5, 62), f"Landing: ", 0, font_9)
+
 
     if core_dict["reused"] == True:
         draw.text((5, 72), f"Reused: Yes", 0, font_9)  # If the Booster is reused
+
     else:
-        red_draw.text((5, 72), f"Reused: No", 0, font_9)
+        red_draw.text((55, 72), f"No", 0, font_9)
+        draw.text((5, 72), f"Reused: ", 0, font_9)
 
     draw.text((5, 82), f"Next: {_2_launch}", 0, font_9)  # And this will draw the next launch on the Image
 
@@ -135,4 +138,4 @@ while True:
 
 
     display.sleep()  # Putting the display in sleep mode to reduce the power!
-    time.sleep(MINUTES * 60) # Waits n Minutes
+    time.sleep(MINUTES * 60) # Waits n Minute

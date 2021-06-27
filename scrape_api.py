@@ -21,8 +21,10 @@ def load_site():
                 site_latest = requests.get("https://api.spacexdata.com/v4/launches/latest")
                 site_next = requests.get("https://api.spacexdata.com/v4/launches/next")
                 site_upcoming = requests.get("https://api.spacexdata.com/v4/launches/upcoming")
+                print("ERROR OCCURED")
             did_work = True
         except:
+            print("ERROR OCCURED")
             time.sleep(60)
             did_work = False
     site_latest = site_latest.json()
