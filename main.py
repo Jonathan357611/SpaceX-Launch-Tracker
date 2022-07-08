@@ -8,7 +8,6 @@ import calendar
 import os
 import ast
 
-
 MINUTES = 15  # Define The amount of time to wait in the loop
 
 
@@ -107,6 +106,9 @@ while True:
 
     if core_dict["landing_attempt"] == True:
         draw.text((5, 62), f"Landing: Yes", 0, font_9)  # If the Rocket attemts to land
+    elif core_dict["landing_attempt"] == None:
+        red_draw.text((55, 62), f"?", 0, font_9)
+        draw.text((5, 62), "Landing: ", 0, font_9)
     else:
         red_draw.text((55, 62), f"No", 0, font_9) # If the Rocket won't land, the Text will get displayed in red!
         draw.text((5, 62), f"Landing: ", 0, font_9)
@@ -114,7 +116,9 @@ while True:
 
     if core_dict["reused"] == True:
         draw.text((5, 72), f"Reused: Yes", 0, font_9)  # If the Booster is reused
-
+    elif core_dict["reused"] == None:
+	    red_draw.text((55, 72), f"?", 0, font_9)
+        draw.text((5, 72), f"Reused: ", 0, font_9)
     else:
         red_draw.text((55, 72), f"No", 0, font_9)
         draw.text((5, 72), f"Reused: ", 0, font_9)
