@@ -1,6 +1,21 @@
 # SpaceX-Launch-Tracker
 
+## Install
 
+Install PIL library:
+```bash
+python3 -m pip install Pillow
+```
+Also, you need to enable SPI in your raspi-config:
+```bash
+sudo raspi-config
+```
+Go to "Interface Options" and enable SPI.
+
+Thats it! Now you can run the program:
+```bash
+python3 main.py
+```
 
 ## Note:
 This Program was designed for the Waveshare 2.13 Inch E-Paper Display (Red/Black/White)!
