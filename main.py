@@ -117,7 +117,7 @@ while True:
     if core_dict["reused"] == True:
         draw.text((5, 72), f"Reused: Yes", 0, font_9)  # If the Booster is reused
     elif core_dict["reused"] == None:
-	    red_draw.text((55, 72), f"?", 0, font_9)
+        red_draw.text((55, 72), f"?", 0, font_9)
         draw.text((5, 72), f"Reused: ", 0, font_9)
     else:
         red_draw.text((55, 72), f"No", 0, font_9)
