@@ -1,3 +1,13 @@
+# Project discontinued due to unavailable API!
+
+Sadly, the r/SpaceX-API is no longer active, so this project does not work,
+But thankfully [@rizzl3r](https://github.com/rizzl3r) ( Thank you :D ) continued development of this project
+and is now using a different+better API and fixed some other stuff.
+
+[His new repo](https://github.com/rizzl3r/SpaceX-Launch-Tracker)
+
+---
+
 # SpaceX-Launch-Tracker
 
 ## Install
